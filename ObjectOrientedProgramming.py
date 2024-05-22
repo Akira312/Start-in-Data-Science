@@ -1,4 +1,5 @@
 import time as t
+import functools
 def benchmark(func):
     def time(*args, **kwargs):
         start=t.time()
@@ -13,11 +14,10 @@ def logging(func):
         func(*args, **kwargs)
     return log
 
-s=0
 def counter(func):
     def calls(*args, **kwargs):
         func(*args, **kwargs)
-        s+=1
+        if 
         print(f'количество итераций заданной функции составило {s} раз')
     return calls
 

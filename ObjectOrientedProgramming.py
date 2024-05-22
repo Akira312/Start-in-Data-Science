@@ -2,19 +2,20 @@ import time as t
 def benchmark(func):
     def time():
         start=t.time()
-        print(func())
+        func()
         stop=t.time()
         print(stop-start)
     return time
 
 def logging(func):
     def log():
-        pass
+        print("smth")
+        func()
     return log
 
 @logging
 @benchmark
-def function():
+def function(): # logging(benchmark(function))
     s=0
     for i in range(9999999):
         s+=i

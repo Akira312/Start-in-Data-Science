@@ -13,8 +13,17 @@ def logging(func):
         func(*args, **kwargs)
     return log
 
+s=0
+def counter(func):
+    def calls(*args, **kwargs):
+        func(*args, **kwargs)
+        s+=1
+        print(f'количество итераций заданной функции составило {s} раз')
+    return calls
+
 @benchmark
 @logging
+@counter
 def function(k): # logging(benchmark(function))
     s=0
     for i in range(k):

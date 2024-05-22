@@ -1,23 +1,23 @@
 import time as t
 def benchmark(func):
-    def time():
+    def time(*args, **kwargs):
         start=t.time()
-        func()
+        func(*args, **kwargs)
         stop=t.time()
-        print(stop-start)
+        print(f'Время выполнения функции составило {stop-start} секунд')
     return time
 
 def logging(func):
-    def log():
-        print("smth")
-        func()
+    def log(*args, **kwargs):
+        print(f'количество полученных элементов функцией составило: {len(args)}')
+        func(*args, **kwargs)
     return log
 
-@logging
 @benchmark
-def function(): # logging(benchmark(function))
+@logging
+def function(k): # logging(benchmark(function))
     s=0
-    for i in range(9999999):
+    for i in range(k):
         s+=i
     return s
-function()
+function(3923823)

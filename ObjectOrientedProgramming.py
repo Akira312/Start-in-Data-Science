@@ -17,7 +17,6 @@ def logging(func):
 def counter(func):
     def calls(*args, **kwargs):
         func(*args, **kwargs)
-        if 
         print(f'количество итераций заданной функции составило {s} раз')
     return calls
 
